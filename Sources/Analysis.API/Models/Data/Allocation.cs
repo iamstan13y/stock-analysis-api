@@ -1,7 +1,7 @@
-﻿using Analysis.API.Enums;
-using ModelLibrary.Enums;
+﻿using StockAnalysis.API.Enums;
+using StockAnalysis.API.Models.Data;
 
-namespace Analysis.API.Models.Data
+namespace StockAnalysis.API.Models.Data
 {
     public class Allocation
     {
