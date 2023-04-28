@@ -1,9 +1,8 @@
-﻿using Analysis.API.Enums;
-using Analysis.API.Models.Data;
+﻿using StockAnalysis.API.Enums;
+using StockAnalysis.API.Models.Data;
 using Microsoft.EntityFrameworkCore;
-using ModelLibrary;
 
-namespace Analysis.API.Models.Repository
+namespace StockAnalysis.API.Models.Repository
 {
     public class StockRepository : IStockRepository
     {
