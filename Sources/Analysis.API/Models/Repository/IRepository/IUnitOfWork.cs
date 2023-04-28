@@ -2,6 +2,7 @@
 {
     public interface IUnitOfWork
     {
+        ICompanyRepository Company { get; }
         void SaveChanges();
     }
 }
