@@ -1,9 +1,8 @@
-﻿using Analysis.API.Models.Data;
-using Analysis.API.Models.Local;
+﻿using StockAnalysis.API.Models.Data;
+using StockAnalysis.API.Models.Local;
 using Microsoft.EntityFrameworkCore;
-using ModelLibrary;
 
-namespace Analysis.API.Models.Repository
+namespace StockAnalysis.API.Models.Repository
 {
     public class FeedbackRepository : IFeedbackRepository
     {
