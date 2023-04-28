@@ -1,4 +1,4 @@
-﻿namespace Analysis.API.Models.Data
+﻿namespace StockAnalysis.API.Models.Data
 {
     public class AllocationBreakdown
     {
