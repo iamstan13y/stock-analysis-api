@@ -9,5 +9,6 @@ namespace StockAnalysis.API.Models.Data
         }
 
         public DbSet<Company>? Companies { get; set; }
+        public DbSet<Stock>? Stocks { get; set; }
     }
 }
