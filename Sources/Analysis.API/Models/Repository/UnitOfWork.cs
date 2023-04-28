@@ -9,10 +9,12 @@ namespace StockAnalysis.Models.Repository
         private readonly AppDbContext _context;
 
         public ICompanyRepository Company { get; private set; }
+        public IStockRepository Stock { get; private set; }
 
         public UnitOfWork(AppDbContext context)
         {
             Company = new CompanyRepository(context);
+            Stock = new StockRepository(context);
 
             _context = context;
         }
