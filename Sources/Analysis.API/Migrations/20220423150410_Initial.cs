@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace Analysis.API.Migrations
+namespace StockAnalysis.API.Migrations
 {
     public partial class Initial : Migration
     {
