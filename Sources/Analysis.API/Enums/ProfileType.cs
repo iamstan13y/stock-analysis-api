@@ -1,4 +1,4 @@
-﻿namespace Analysis.API.Enums
+﻿namespace StockAnalysis.API.Enums
 {
     public enum ProfileType
     {
