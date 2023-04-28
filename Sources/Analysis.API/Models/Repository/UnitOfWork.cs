@@ -1,4 +1,5 @@
 ﻿using StockAnalysis.API.Models.Data;
+using StockAnalysis.API.Models.Repository;
 using StockAnalysis.API.Models.Repository.IRepository;
 
 namespace StockAnalysis.Models.Repository
@@ -7,8 +8,12 @@ namespace StockAnalysis.Models.Repository
     {
         private readonly AppDbContext _context;
 
+        public ICompanyRepository Company { get; private set; }
+
         public UnitOfWork(AppDbContext context)
         {
+            Company = new CompanyRepository(context);
+
             _context = context;
         }
 
