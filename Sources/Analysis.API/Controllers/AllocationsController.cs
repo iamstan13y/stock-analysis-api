@@ -1,8 +1,8 @@
-﻿using Analysis.API.Models.Local;
-using Analysis.API.Services;
+﻿using StockAnalysis.API.Models.Local;
+using StockAnalysis.API.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Analysis.API.Controllers
+namespace StockAnalysis.API.Controllers
 {
     [Route("api/v1/[controller]")]
     [ApiController]
