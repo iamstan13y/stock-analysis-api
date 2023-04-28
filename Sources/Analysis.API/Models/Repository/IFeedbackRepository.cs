@@ -1,8 +1,7 @@
-﻿using Analysis.API.Models.Data;
-using Analysis.API.Models.Local;
-using ModelLibrary;
+﻿using StockAnalysis.API.Models.Data;
+using StockAnalysis.API.Models.Local;
 
-namespace Analysis.API.Models.Repository
+namespace StockAnalysis.API.Models.Repository
 {
     public interface IFeedbackRepository
     {
