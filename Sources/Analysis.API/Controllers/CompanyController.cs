@@ -32,8 +32,28 @@ namespace StockAnalysis.API.Controllers
             {
                 Name = request.Name
             });
-            
+
+            _unitOfWork.SaveChanges();
+
             if (!result.Success) return BadRequest(result);
+
+            return Ok(result);
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> Put(UpdateCompanyRequest request)
+        {
+            var result = await _unitOfWork.Company.UpdateAsync(new Company
+            {
+                Id = request.Id,
+                Name = request.Name
+            });
+
+            _unitOfWork.SaveChanges();
+
+            if (!result.Success) return BadRequest(result);
+            
+            _unitOfWork.SaveChanges();
 
             return Ok(result);
         }
