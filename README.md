@@ -1,1 +1,1 @@
-# portfolio-analysis-system
+# stock-analysis-system
