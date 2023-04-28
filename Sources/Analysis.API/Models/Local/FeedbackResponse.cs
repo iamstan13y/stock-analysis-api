@@ -1,4 +1,4 @@
-﻿namespace Analysis.API.Models.Local
+﻿namespace StockAnalysis.API.Models.Local
 {
     public class FeedbackResponse
     {
