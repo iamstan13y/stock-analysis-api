@@ -1,7 +1,7 @@
-﻿using Analysis.API.Enums;
+﻿using StockAnalysis.API.Enums;
 using System.ComponentModel.DataAnnotations;
 
-namespace Analysis.API.Models.Data
+namespace StockAnalysis.API.Models.Data
 {
     public class Stock
     {
