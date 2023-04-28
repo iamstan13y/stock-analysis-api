@@ -1,8 +1,8 @@
-﻿using Analysis.API.Enums;
-using Analysis.API.Models.Data;
-using Analysis.API.Models.Local;
+﻿using Analysis.API.Models.Data;
 using Analysis.API.Models.Repository;
 using Microsoft.AspNetCore.Mvc;
+using StockAnalysis.API.Enums;
+using StockAnalysis.API.Models.Local;
 
 namespace Analysis.API.Controllers
 {
