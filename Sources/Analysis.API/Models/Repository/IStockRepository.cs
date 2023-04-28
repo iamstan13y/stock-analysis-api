@@ -1,6 +1,6 @@
-﻿using Analysis.API.Enums;
-using Analysis.API.Models.Data;
-using ModelLibrary;
+﻿using ModelLibrary;
+using StockAnalysis.API.Enums;
+using StockAnalysis.API.Models.Data;
 
 namespace Analysis.API.Models.Repository
 {
