@@ -25,4 +25,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\Local\" />
+    <Folder Include="Models\Repository\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+
 </Project>
