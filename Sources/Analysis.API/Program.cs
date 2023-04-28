@@ -1,10 +1,8 @@
-using Analysis.API.Models.Data;
-using Analysis.API.Models.Repository;
-using Analysis.API.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using StockAnalysis.API.Models.Data;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,9 +10,6 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-builder.Services.AddScoped<IStockRepository, StockRepository>();
-builder.Services.AddScoped<IFeedbackRepository, FeedbackRepository>();
 
 builder.Services.AddCors(options =>
 {
@@ -26,7 +21,6 @@ builder.Services.AddCors(options =>
     });
 });
 
-builder.Services.AddScoped<IAllocationService, AllocationService>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
