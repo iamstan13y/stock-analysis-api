@@ -1,10 +1,9 @@
-﻿using Analysis.API.Enums;
-using Analysis.API.Models.Data;
-using Analysis.API.Models.Local;
-using Analysis.API.Models.Repository;
-using ModelLibrary;
+﻿using StockAnalysis.API.Enums;
+using StockAnalysis.API.Models.Data;
+using StockAnalysis.API.Models.Local;
+using StockAnalysis.API.Models.Repository;
 
-namespace Analysis.API.Services
+namespace StockAnalysis.API.Services
 {
     public class AllocationService : IAllocationService
     {
