@@ -1,6 +1,6 @@
-﻿using Analysis.API.Enums;
+﻿using StockAnalysis.API.Enums;
 
-namespace Analysis.API.Models.Local
+namespace StockAnalysis.API.Models.Local
 {
     public class StockRequest
     {
