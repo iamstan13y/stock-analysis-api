@@ -15,4 +15,13 @@ namespace StockAnalysis.API.Models.Repository
             new Result<IEnumerable<Stock>>(await _dbSet
                 .Include(x => x.Company)
                 .ToListAsync());
+
+        public async new Task<Result<Stock>> FindAsync(int id)
+        {
+            var stock = await _dbSet.FindAsync(id);
+            if (stock == null) return new Result<Stock>(false, "Stock not found.");
+
+            return new Result<Stock>(stock);
+        }
+    }
 }
