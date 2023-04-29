@@ -14,6 +14,7 @@ namespace StockAnalysis.API.Models.Repository
         public async new Task<Result<IEnumerable<Stock>>> GetAllAsync() =>
             new Result<IEnumerable<Stock>>(await _dbSet
                 .Include(x => x.Company)
+                .OrderByDescending(x => x.ClosingDate)
                 .ToListAsync());
 
         public async new Task<Result<Stock>> FindAsync(int id)
@@ -29,6 +30,8 @@ namespace StockAnalysis.API.Models.Repository
             var stocks = await _dbSet
                 .Where(x => x.CompanyId == companyId)
                 .Include(x => x.Company)
+                .OrderByDescending(x => x.ClosingDate)
+                .Take(7)
                 .ToListAsync();
 
             return new Result<IEnumerable<Stock>>(stocks);
