@@ -23,5 +23,15 @@ namespace StockAnalysis.API.Models.Repository
 
             return new Result<Stock>(stock);
         }
+
+        public async Task<Result<IEnumerable<Stock>>> GetByCompanyIdAsync(int companyId)
+        {
+            var stocks = await _dbSet
+                .Where(x => x.CompanyId == companyId)
+                .Include(x => x.Company)
+                .ToListAsync();
+
+            return new Result<IEnumerable<Stock>>(stocks);
+        }
     }
 }
