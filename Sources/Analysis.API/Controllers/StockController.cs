@@ -13,5 +13,14 @@ namespace StockAnalysis.API.Controllers
 
         [HttpGet]
         public async Task<IActionResult> Get() => Ok(await _unitOfWork.Stock.GetAllAsync());
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Get(int id)
+        {
+            var result = await _unitOfWork.Stock.FindAsync(id);
+            if (!result.Success) return NotFound(result);
+
+            return Ok(result);
+        }
     }
 }
