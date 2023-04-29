@@ -6,12 +6,31 @@ using StockAnalysis.API.Models.Data;
 using StockAnalysis.API.Models.Repository.IRepository;
 using StockAnalysis.Models.Repository;
 using System.Text;
+using Quartz;
+using StockAnalysis.API.Jobs;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddQuartz(q =>
+{
+    q.UseMicrosoftDependencyInjectionJobFactory();
+
+    var jobKey = new JobKey("StockJob");
+
+    q.AddJob<StockJob>(opts => opts.WithIdentity(jobKey));
+
+    q.AddTrigger(opts => opts
+       .ForJob(jobKey)
+       .WithIdentity("StockJob-trigger")
+       .WithCronSchedule("0 47 23 1/1 * ? *"));
+});
+
+builder.Services.AddQuartzHostedService(
+    q => q.WaitForJobsToComplete = true);
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
