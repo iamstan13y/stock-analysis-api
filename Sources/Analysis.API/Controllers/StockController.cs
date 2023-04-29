@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using StockAnalysis.API.Models.Data;
 using StockAnalysis.API.Models.Repository.IRepository;
 
 namespace StockAnalysis.API.Controllers
@@ -22,5 +23,8 @@ namespace StockAnalysis.API.Controllers
 
             return Ok(result);
         }
+
+        [HttpGet("company/{companyId}")]
+        public async Task<IActionResult> GetByCompanyId(int companyId) => Ok(await _unitOfWork.Stock.GetByCompanyIdAsync(companyId));
     }
 }
