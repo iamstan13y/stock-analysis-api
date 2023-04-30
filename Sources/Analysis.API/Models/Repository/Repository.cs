@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.Linq.Expressions;
+using StockAnalysis.API.Models.Data;
 using StockAnalysis.API.Models.Local;
 using StockAnalysis.Models.Repository.IRepository;
-using StockAnalysis.API.Models.Data;
 using StockAnalysis.Utility;
+using System.Linq.Expressions;
 
 namespace StockAnalysis.API.Models.Repository
 {
