@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using StockAnalysis.API.Models.Data;
 using StockAnalysis.API.Models.Repository.IRepository;
 
 namespace StockAnalysis.API.Controllers
