@@ -2,12 +2,12 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Quartz;
+using StockAnalysis.API.Jobs;
 using StockAnalysis.API.Models.Data;
 using StockAnalysis.API.Models.Repository.IRepository;
 using StockAnalysis.Models.Repository;
 using System.Text;
-using Quartz;
-using StockAnalysis.API.Jobs;
 
 var builder = WebApplication.CreateBuilder(args);
 
