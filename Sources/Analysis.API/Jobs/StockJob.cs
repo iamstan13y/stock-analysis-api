@@ -29,7 +29,7 @@ namespace StockAnalysis.API.Jobs
             return Task.CompletedTask;
         }
 
-        private static double PrognosticateClosingPrice(double closingPrice) => 
+        private static double PrognosticateClosingPrice(double closingPrice) =>
             (closingPrice * 0.9) + (new Random().NextDouble() * ((closingPrice * 1.1) - (closingPrice * 0.9)));
     }
 }
