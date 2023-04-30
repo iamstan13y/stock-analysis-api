@@ -6,6 +6,6 @@
         public int CompanyId { get; set; }
         public double ClosingPrice { get; set; }
         public DateTime ClosingDate { get; set; } = DateTime.Now;
-        public Company? Company { get; set;}
+        public Company? Company { get; set; }
     }
 }
