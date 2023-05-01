@@ -1,4 +1,5 @@
-﻿using Quartz;
+﻿using Microsoft.EntityFrameworkCore;
+using Quartz;
 using StockAnalysis.API.Models.Data;
 
 namespace StockAnalysis.API.Jobs
@@ -10,32 +11,28 @@ namespace StockAnalysis.API.Jobs
 
         public StockJob(AppDbContext context) => _context = context;
 
-        public Task Execute(IJobExecutionContext context)
+        public async Task Execute(IJobExecutionContext context)
         {
-            var latestStocks = _context.Stocks!
+            var latestStocks = await _context.Stocks!
                 .OrderByDescending(x => x.ClosingDate)
                 .Take(10)
-                .ToList();
+                .ToListAsync();
 
-            var newStocks = new List<Stock>();
-            latestStocks.ForEach(stock =>
+            var newStocks = latestStocks.Select(stock =>
             {
-                var lastClosingPrice = stock.ClosingPrice;
-                var newClosingPrice = PrognosticateClosingPrice(lastClosingPrice);
+                var newClosingPrice = PrognosticateClosingPrice(stock.ClosingPrice);
 
-                newStocks.Add(new Stock
+                return new Stock
                 {
                     CompanyId = stock.CompanyId,
                     ClosingPrice = newClosingPrice,
                     ClosingDate = DateTime.Now,
-                    PercentageChange = ((newClosingPrice - lastClosingPrice) / lastClosingPrice) * 100
-                });
-            });
+                    PercentageChange = ((newClosingPrice - stock.ClosingPrice) / stock.ClosingPrice) * 100
+                };
+            }).ToList();
 
-            _context.Stocks!.AddRange(newStocks);
-            _context.SaveChanges();
-
-            return Task.CompletedTask;
+            await _context.Stocks!.AddRangeAsync(newStocks);
+            await _context.SaveChangesAsync();
         }
 
         private static double PrognosticateClosingPrice(double closingPrice) =>
