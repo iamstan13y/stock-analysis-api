@@ -15,13 +15,15 @@ namespace StockAnalysis.API.Jobs
             var latestStocks = _context.Stocks!
                 .OrderByDescending(x => x.ClosingDate)
                 .Take(10)
-                .Select(stock => new Stock
-                {
-                    CompanyId = stock.CompanyId,
-                    ClosingPrice = PrognosticateClosingPrice(stock.ClosingPrice),
-                    ClosingDate = DateTime.Now
-                })
                 .ToList();
+
+            latestStocks.ForEach(stock =>
+            {
+                var lastClosingPrice = stock.ClosingPrice;
+                stock.ClosingPrice = PrognosticateClosingPrice(lastClosingPrice);
+                stock.ClosingDate = DateTime.Now;
+                stock.PercentageChange = Math.Round(((stock.ClosingPrice - lastClosingPrice) / lastClosingPrice) * 100, 2);
+            });
 
             _context.Stocks!.AddRange(latestStocks);
             _context.SaveChanges();
