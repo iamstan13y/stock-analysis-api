@@ -58,6 +58,9 @@ namespace StockAnalysis.API.Migrations
                     b.Property<double>("PercentageChange")
                         .HasColumnType("float");
 
+                    b.Property<string>("Verdict")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CompanyId");
