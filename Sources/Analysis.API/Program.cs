@@ -26,7 +26,7 @@ builder.Services.AddQuartz(q =>
     q.AddTrigger(opts => opts
        .ForJob(jobKey)
        .WithIdentity("StockJob-trigger")
-       .WithCronSchedule("0 47 23 1/1 * ? *"));
+       .WithCronSchedule("0 0/2 * 1/1 * ? *"));
 });
 
 builder.Services.AddQuartzHostedService(
