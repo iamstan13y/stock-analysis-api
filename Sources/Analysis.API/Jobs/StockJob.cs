@@ -29,7 +29,7 @@ namespace StockAnalysis.API.Jobs
                     ClosingPrice = newClosingPrice,
                     ClosingDate = DateTime.Now,
                     PercentageChange = ((newClosingPrice - stock.ClosingPrice) / stock.ClosingPrice) * 100,
-                    Verdict = verdicts[new Random().Next(0, 2)]
+                    Verdict = verdicts[new Random().Next(0, 3)]
                 };
             }).ToList();
 
