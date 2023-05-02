@@ -21,13 +21,15 @@ namespace StockAnalysis.API.Jobs
             var newStocks = latestStocks.Select(stock =>
             {
                 var newClosingPrice = PrognosticateClosingPrice(stock.ClosingPrice);
+                var verdicts = new List<string> { "Buy", "Hold", "Sell"};
 
                 return new Stock
                 {
                     CompanyId = stock.CompanyId,
                     ClosingPrice = newClosingPrice,
                     ClosingDate = DateTime.Now,
-                    PercentageChange = ((newClosingPrice - stock.ClosingPrice) / stock.ClosingPrice) * 100
+                    PercentageChange = ((newClosingPrice - stock.ClosingPrice) / stock.ClosingPrice) * 100,
+                    Verdict = verdicts[new Random().Next(0, 2)]
                 };
             }).ToList();
 
