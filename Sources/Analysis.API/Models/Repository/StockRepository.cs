@@ -15,6 +15,7 @@ namespace StockAnalysis.API.Models.Repository
             new Result<IEnumerable<Stock>>(await _dbSet
                 .Include(x => x.Company)
                 .OrderByDescending(x => x.ClosingDate)
+                .Take(30)
                 .ToListAsync());
 
         public async new Task<Result<Stock>> FindAsync(int id)
