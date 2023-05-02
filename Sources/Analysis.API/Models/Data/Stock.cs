@@ -7,6 +7,7 @@
         public double ClosingPrice { get; set; }
         public DateTime ClosingDate { get; set; } = DateTime.Now;
         public double PercentageChange { get; set; }
+        public string? Verdict { get; set; }
         public Company? Company { get; set; }
     }
 }
